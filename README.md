@@ -8,7 +8,7 @@ Inserting and Formatting Text By using Macros in MS Excel
 5. Save file type in "Excel Macro Enable Workbook"
 
 Sorting in Excel VBA
-1. selecting a column range and sorting the list.
+1. Selecting a column range and sorting the list.
 2. Prompting the user for information and creating an input box and mssg.
 3. Building logic into your Macros.
 4. Altering the user of Errors.
