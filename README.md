@@ -14,3 +14,9 @@ Sorting in Excel VBA
 4. Altering the user of Errors.
 5. Using Excel VBA Error control statements.
 6. Create a click button to run the sort procedure and save.
+
+Cleaning up data with Excel VBA
+1. Record Macro.
+2. Insert and Format Headers.
+3. Using an Excel VBA loop to loop through all worksheets.
+4. Adding logic to an Excel loop by inserting a new worksheet.
