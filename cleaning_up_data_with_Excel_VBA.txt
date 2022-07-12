@@ -1,0 +1,109 @@
+Sub LoopInsertformatHeaders()
+    Dim ws As Worksheet
+    For Each ws In Worksheets
+        Worksheets(ws.Name).Select
+        
+        If Range("A1").Value <> "Division" Then
+            Insertheaders
+            Formatheaders
+        End If
+        
+    Next ws
+    
+End Sub
+
+
+Sub Insertheaders()
+'
+' Insertheaders Macro
+'
+
+'
+    Rows("1:1").Select
+    Calculate
+    Selection.Insert Shift:=xlDown
+    Range("A1").Select
+    ActiveCell.FormulaR1C1 = "Division"
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "Category"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "Jan"
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "Feb"
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "M"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "Mar"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = "Total"
+    Range("E2").Select
+End Sub
+Sub Formatheaders()
+'
+' Formatheaders Macro
+'
+
+'
+    Range("A1").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Selection.Font.Bold = True
+    Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+    Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+    With Selection.Borders(xlEdgeLeft)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection.Borders(xlEdgeTop)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection.Borders(xlEdgeBottom)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection.Borders(xlEdgeRight)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection.Borders(xlInsideVertical)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection.Borders(xlInsideHorizontal)
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Columns("B:F").Select
+    Columns("B:F").EntireColumn.AutoFit
+    Range("C2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Selection.NumberFormat = _
+        "_-[$$-409]* #,##0.00_ ;_-[$$-409]* -#,##0.00 ;_-[$$-409]* ""-""??_ ;_-@_ "
+    Range("A2").Select
+End Sub
