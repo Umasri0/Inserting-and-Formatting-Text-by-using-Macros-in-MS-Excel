@@ -1,0 +1,50 @@
+Public Sub createInputBox()
+    ' get input from user
+    Dim userinput As String
+    userinput = InputBox("what is your favorite color?", "Favorite color")
+    MsgBox (userinput)
+    
+End Sub
+Public Sub userinput()
+   'get the sort order from the user
+    Dim sortorder As Integer
+    Dim promptMSG As String
+    Dim tryagain As Integer
+    
+    On Error GoTo errHandler
+    
+    promptMSG = "How would you like to sort the list?" & vbCrLf & _
+    "1 - sort by Division" & vbCrLf & _
+    "2 - sort by Category" & vbCrLf & _
+    "3 - sort by Total"
+ 
+    sortorder = InputBox(promptMSG, "sort order")
+    
+    If sortorder = 1 Then
+        divisionsorting
+    ElseIf sortorder = 2 Then
+        categorysorting
+    ElseIf sortorder = 3 Then
+    Else
+errHandler:
+        tryagain = MsgBox("Invaild Value! Try again?", vbYesNo)
+        If tryagain = 6 Then
+            userinput
+        End If
+    End If
+End Sub
+
+
+Public Sub divisionsorting()
+'sorts the list by the division
+    Columns("A:F").Sort key1:=Range("A2"), order1:=xlDescending, Header:=xlYes
+    
+End Sub
+Public Sub categorysorting()
+'sorts the list by the category
+    Columns("A:F").Sort key1:=Range("B2"), order1:=xlDescending, Header:=xlYes
+End Sub
+Public Sub Totalsorting()
+'sorts the list by the Total
+    Columns("A:F").Sort key1:=Range("F2"), order1:=xlDescending, Header:=xlYes
+End Sub
